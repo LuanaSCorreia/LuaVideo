@@ -3,7 +3,7 @@ import ModalMenu from "./ModalMenu";
 import styled from 'styled-components';
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import Series from "../Main/Series.js";
-import Filmes from "../Main/Filmes.js"
+//import Filmes from "../Main/Filmes.js"
 
 
 const Categoria = styled.div`
@@ -94,6 +94,7 @@ width: 100px;
     }
 }
 `
+//                            <li class="box_one_item"><Link to = "/Filmes">Filmes</Link></li>
 
 function Categorias() {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -109,7 +110,6 @@ function Categorias() {
                         <ul class="box_one">
                             <li class="box_one_item">incluido no prime</li>
                             <li class="box_one_item">Amazon originais e exclusivos</li>
-                            <li class="box_one_item"><Link to = "/Filmes">Filmes</Link></li>
                             <li class="box_one_item"><Link to = "/Series">Séries</Link></li>
                             <li class="box_one_item">Infantis</li>
                             <li class="box_one_item">Esporte</li>
