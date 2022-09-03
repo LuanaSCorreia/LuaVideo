@@ -15,6 +15,7 @@ justify-content: space-around;
 cursor: pointer;
 `
 const Ul = styled.ul`
+color:white;
 position: relative;
 top:8.8vh;
 left:67vw;
@@ -42,6 +43,7 @@ function Perfil() {
                 <ImgPerfil src={IPerfil} alt="" />
                 <figcaption>Luana...▼</figcaption>
             </Pperfil>
+            
         { isModalVisible ? (
             <ModalMenu onClose={() => setIsModalVisible(false)}>
             <Ul>

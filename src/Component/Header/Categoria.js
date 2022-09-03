@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import ModalMenu from "./ModalMenu";
 import styled from 'styled-components';
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import Series from "../Main/Series.js";
+import Filmes from "../Main/Filmes.js"
+
 
 const Categoria = styled.div`
 cursor: pointer;
+color: white;
 width: 100%;
 height: 60vh;
 position: absolute;
@@ -93,6 +98,7 @@ width: 100px;
 function Categorias() {
     const [isModalVisible, setIsModalVisible] = useState(false);
     return (
+        <BrowserRouter>
         <div>
             <p onClick={() => setIsModalVisible(true)}>Categoria ▼</p>
             {isModalVisible ? (
@@ -103,13 +109,13 @@ function Categorias() {
                         <ul class="box_one">
                             <li class="box_one_item">incluido no prime</li>
                             <li class="box_one_item">Amazon originais e exclusivos</li>
-                            <li class="box_one_item">Filmes</li>
-                            <li class="box_one_item">Séries</li>
+                            <li class="box_one_item"><Link to = "/Filmes">Filmes</Link></li>
+                            <li class="box_one_item"><Link to = "/Series">Séries</Link></li>
                             <li class="box_one_item">Infantis</li>
                             <li class="box_one_item">Esporte</li>
                         </ul>
                         </div>
-
+                  
                         <Genero>
                             <p>Gêneros</p>
                             <ul class="box_two">
@@ -141,6 +147,11 @@ function Categorias() {
                 </ModalMenu>
             ) : null}
         </div>
+        <Routes>
+          <Route path="/Filmes" element={<Filmes />} />
+          <Route path="/Series" element={<Series />} />
+        </Routes>
+        </BrowserRouter>
     )
 }
 

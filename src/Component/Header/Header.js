@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import Lupa from "../imagem/lupa.png";
-import Prime from "../imagem/prime.png";
+import Lua from "../imagem/Lua.png";
 import Categorias from "./Categoria";
-import Perfil from "./Login"
+import Perfil from "./Login";
+import Lupa from "../imagem/lupa.png";
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import Home from "./Home.js"
+//import Buscador from "../Main/Series"
 
 
 const Container = styled.section`
-background-color: #1a222e;
-color: #fdffde;
+background-color: #CD6839;
+color: black;
 font-size: 1.3vw;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
-position: fixed;
 width: 100%;
 height: 12vh;
 margin: 0;
@@ -26,7 +28,16 @@ align-items: center;
 list-style: none;
 cursor: pointer;
 `
-const Buscar = styled.input`
+
+const ImgLua = styled.img`
+width: 3.3vw;
+
+`
+
+const Span = styled.span`
+width: 15%;
+`
+const Buscador = styled.input`
 width: 10vw;
 height: 2vw;
 background-color: #1a222e;
@@ -38,34 +49,35 @@ background-size:1.7vw;
 background-repeat:no-repeat;
 text-align: center;
 `
-const ImgPrime = styled.img`
-width: 9vw;
-`
-
-const Span = styled.span`
-width: 15%;
-`
-
 export default class Header extends Component {
-
+  
     render() {
         return (
+            <BrowserRouter>
             <Container>
-                <ImgPrime src={Prime} alt="Imagem prime vídeo" />
-                <nav>
-                    <Nav>
-                        <li>Início</li>
-                        <li>Loja</li>
-                        <li>Canais</li>
-                        <Categorias></Categorias>
-                        <li>Minha área</li>
-                        
-                    </Nav>
-                </nav>
+                <figure>
+                    <ImgLua src={Lua} alt="Lua" />
+                    <figcaption>Video</figcaption>
+                </figure>
+
+                <Nav>
+                    <li><Link to = "/">Inicio</Link></li>
+                    <li>Loja</li>
+                    <li>Canais</li>
+                    <Categorias></Categorias>
+                    <li>Minha área</li>
+                </Nav>
+        
                 <Span></Span>
-                <Buscar type="text" placeholder="Buscar" />
+
+                <Buscador type= "text" placeholder = "Buscar"/>
+
                 <Perfil></Perfil>
             </Container>
+            <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+            </BrowserRouter>
         )
     }
 }
