@@ -99,7 +99,7 @@ width: 100px;
 function Categorias() {
     const [isModalVisible, setIsModalVisible] = useState(false);
     return (
-        <BrowserRouter>
+  
         <div>
             <p onClick={() => setIsModalVisible(true)}>Categoria ▼</p>
             {isModalVisible ? (
@@ -107,10 +107,9 @@ function Categorias() {
                     <Categoria>
                         <div>
                         <p>Principais categorias</p>
-                        <ul class="box_one">
+                        <ul class="box_one">np
                             <li class="box_one_item">incluido no prime</li>
                             <li class="box_one_item">Amazon originais e exclusivos</li>
-                            <li class="box_one_item"><Link to = "/Series">Séries</Link></li>
                             <li class="box_one_item">Infantis</li>
                             <li class="box_one_item">Esporte</li>
                         </ul>
@@ -147,11 +146,7 @@ function Categorias() {
                 </ModalMenu>
             ) : null}
         </div>
-        <Routes>
-          <Route path="/Filmes" element={<Filmes />} />
-          <Route path="/Series" element={<Series />} />
-        </Routes>
-        </BrowserRouter>
+      
     )
 }
 

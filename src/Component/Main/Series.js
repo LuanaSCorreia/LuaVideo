@@ -1,50 +1,25 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from "axios";
-import Estrela from "../imagem/Estrela.png"
+import Estrela from "../imagem/Estrela.png";
+import Carousel from "nuka-carousel/lib/carousel";
 
 const H1 = styled.h1`
 font-size: 3vw;
 text-decoration: underline;
 margin-left: 4vw;
-color: #CD6839;
+color: #8470ff;
 `
 
 const Conteiner = styled.section`
 
 `
 
-const Box_one = styled.div`
-width: 100%;
-display: flex;
-
-ul{width: 99vw;
- height: 46vh;
-  display: flex;
-  list-style: none;
-  overflow:auto;
-  object-fit: cover;
-}
-
-img{
-  width: 92vw;
-}
-
-`
 const Box_two = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 
-ul{
-  width: 28vw;
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content: space-evenly;
-  list-style: none;
-  font-size: 1vw;
-  height: 82vh;
-}
+
 li{
   display: grid;
   place-items: center;
@@ -59,6 +34,22 @@ font-size: 1.2vw;
 `
 const Nota = styled.img`
 width: 2vw;
+`
+const Box = styled(Carousel)`
+width: 70%;
+height: 30px;
+margin-top: 5vh;
+
+figure{
+  height: 50vh;
+}
+  img{
+  width: 100%;
+  height: 100%;
+  border: solid;
+  object-fit: cover;
+  border: solid;
+}
 `
 
 const SeriesApi = axios.create({
@@ -120,22 +111,60 @@ class Series extends Component {
   */
 
   render() {
+    const settings = {
+      dots: true,
+      wrapAround: true,
+      pauseOnHover: true,
+      autoplay: true,
+      slidesToShow: 1,
+      speed: 900,
+      cellAlign: "center",
+      cellSpacing: 50,
+      slidesToScroll: 1,
+      dragThreshold: 1,
+      adaptiveWidth: true,
+      enableKeyboardControls: true,
+  
+      defaultControlsConfig: {
+        nextButtonText: ">",
+        prevButtonText: "<",
+        
+        pagingDotsStyle: {
+          fill: "red",
+          position:"relative",
+          top:"5vh",
+        },
+        nextButtonStyle: {
+          backgroundColor: "#f00",
+          position:"relative",
+          top:"5vh",
+        },
+        prevButtonStyle: {
+          color: "white",
+          backgroundColor: "#f00",
+          position:"relative",
+          top:"5vh",
+        }
+      }
+    };
+  
     return (
-      <Conteiner>
-        <Box_one>
+      <Conteiner > 
+         <Box {...settings} >
         {this.state.series.map((item, index) => (
-          <div key={index}>
-            <ul>
-              <li> <img src={item.backdrop} /></li>
-            </ul>
-          </div>
-        ))}
-       </Box_one>
+         
+            <figure key={index}>
+               <img src={item.backdrop} />
+              </figure>
+            ))}  
+          </Box>
+        
+       
         <H1> Série</H1>
         <Box_two>
         {this.state.series.map((item, index) => (
           <div key={index}>
-            <ul>
+            <ul >
               <li> <Poster src={item.image} title={item.title} /> </li>
               <Title>{item.name}</Title>
               <li>{item.overview}</li>

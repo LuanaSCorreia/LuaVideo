@@ -4,19 +4,19 @@ import Lua from "../imagem/Lua.png";
 import Categorias from "./Categoria";
 import Perfil from "./Login";
 import Lupa from "../imagem/lupa.png";
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+//import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import Home from "./Home.js"
 //import Buscador from "../Main/Series"
 
-
 const Container = styled.section`
-background-color: #CD6839;
+background-color: #8470FF;
+border: solid;
 color: black;
 font-size: 1.3vw;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
-width: 100%;
+width: 99.5%;
 height: 12vh;
 margin: 0;
 `
@@ -40,8 +40,8 @@ width: 15%;
 const Buscador = styled.input`
 width: 10vw;
 height: 2vw;
-background-color: #1a222e;
-color: #fdffde;
+background-color: grey;
+color: black;
 font-size: 1.1vw;
 position: relative;
 background: url(${Lupa});
@@ -53,7 +53,7 @@ export default class Header extends Component {
   
     render() {
         return (
-            <BrowserRouter>
+        
             <Container>
                 <figure>
                     <ImgLua src={Lua} alt="Lua" />
@@ -61,7 +61,7 @@ export default class Header extends Component {
                 </figure>
 
                 <Nav>
-                    <li><Link to = "/">Inicio</Link></li>
+                    <li>Inicio</li>
                     <li>Loja</li>
                     <li>Canais</li>
                     <Categorias></Categorias>
@@ -74,10 +74,7 @@ export default class Header extends Component {
 
                 <Perfil></Perfil>
             </Container>
-            <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-            </BrowserRouter>
+           
         )
     }
 }

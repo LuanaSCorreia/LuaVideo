@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import axios from 'axios'
 
 const FilmesApi = axios.create({
@@ -69,3 +69,4 @@ export default class Movies extends Component {
         )
     }
 }
+*/
